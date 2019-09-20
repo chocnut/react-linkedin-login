@@ -1,4 +1,4 @@
-import { IButtonType } from "./types";
+import { IButtonType, IMessageEvent } from "./types";
 
 export const imgStyle = {
   width: 200
@@ -58,7 +58,7 @@ export const popUp = (e: any, props: IButtonType) => {
     window.top.outerHeight / 2 + window.top.screenY - height / 2;
   const left = window.top.outerWidth / 2 + window.top.screenX - width / 2;
 
-  const messageReceiver = event => {
+  const messageReceiver = (event: IMessageEvent) => {
     if (event.origin === window.location.origin) {
       if (event.data.code && event.data.from === "linkedIn") {
         props.onSuccess(event.data);
@@ -81,7 +81,7 @@ export const popUp = (e: any, props: IButtonType) => {
   );
 };
 
-const toQueryParams = obj =>
+const toQueryParams = (obj: IButtonType) =>
   Object.entries(obj)
     .map(([key, val]) => `${key}=${val}`)
     .join("&");

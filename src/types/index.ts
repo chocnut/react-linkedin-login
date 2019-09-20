@@ -9,3 +9,10 @@ export interface IButtonType {
   state: string;
   responseType?: string;
 }
+
+export interface IMessageEvent {
+  data: {
+    code: string;
+    from: string;
+  };
+}
