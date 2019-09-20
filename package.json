@@ -9,6 +9,7 @@
     "build": "npm run build:types && npm run build:js",
     "build:types": "tsc --emitDeclarationOnly",
     "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
+    "bundle": "webpack",
     "lint": "tslint-config-prettier-check ./tslint.json"
   },
   "keywords": [
@@ -27,9 +28,12 @@
     "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.6.0",
+    "babel-loader": "^8.0.4",
     "tslint": "^5.20.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.6.3"
+    "typescript": "^3.6.3",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9"
   },
   "dependencies": {
     "@types/react": "^16.9.2",
