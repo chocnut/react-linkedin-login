@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import logo from "./img/default.png";
+import { IButtonType } from "./types";
 
 const defaultStyle = {
   backgroundColor: "#337ab7",
@@ -30,7 +31,10 @@ const left = window.top.outerWidth / 2 + window.top.screenX - width / 2;
 
 const messageReceiver = event => {
   if (event.origin === window.location.origin) {
-    console.log("errr", event);
+    if (event.data.code && event.data.from === "linkedIn") {
+      const el = document.getElementById("demo");
+      el.innerHTML += `<pre>${JSON.stringify(event.data)}</pre>`;
+    }
   }
 };
 
@@ -53,7 +57,7 @@ const getCode = () => {
   return accessToken;
 };
 
-export default () => {
+export default (props: IButtonType) => {
   useEffect(() => {
     const code = getCode();
     if (code) {
