@@ -1,3 +1,3 @@
 # React LinkedIn Login
 
-> A Component React for LinkedIn Login
+> A React Component for LinkedIn Login
