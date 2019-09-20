@@ -1,1 +1,3 @@
-export default from './linkedin';
+import LinkedIn from "./linkedin";
+
+export default LinkedIn;
