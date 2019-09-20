@@ -27,16 +27,16 @@ const height = 600;
 
 const top = window.top.outerHeight / 2 + window.top.screenY - height / 2;
 const left = window.top.outerWidth / 2 + window.top.screenX - width / 2;
-let modal = null;
 
 const messageReceiver = event => {
-  console.log(event);
-  modal.close();
+  if (event.origin === window.location.origin) {
+    console.log("errr", event);
+  }
 };
 
 const popUp = e => {
   e.preventDefault();
-  modal = window.open(
+  window.open(
     url,
     "_blank",
     `width=${width},height=${height},top=${top},left=${left}`
@@ -58,7 +58,7 @@ export default () => {
     const code = getCode();
     if (code) {
       window.close();
-      window.opener.postMessage(code, "/");
+      window.opener.postMessage({ code, from: "linkedIn" }, "/");
     }
   }, []);
 
