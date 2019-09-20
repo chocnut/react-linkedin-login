@@ -4,12 +4,13 @@
   "description": "React component for LinkedIn login",
   "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
     "build": "npm run build:types && npm run build:js",
     "build:types": "tsc --emitDeclarationOnly",
     "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
-    "bundle": "webpack",
+    "bundle": "webpack --mode=production",
     "lint": "tslint-config-prettier-check ./tslint.json"
   },
   "keywords": [
@@ -29,11 +30,13 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.6.0",
     "babel-loader": "^8.0.4",
+    "file-loader": "^4.2.0",
     "tslint": "^5.20.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.6.3",
     "webpack": "^4.40.2",
-    "webpack-cli": "^3.3.9"
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.1"
   },
   "dependencies": {
     "@types/react": "^16.9.2",

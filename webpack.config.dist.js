@@ -1,9 +1,11 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./demo/index",
+  entry: "./src/index",
   output: {
-    filename: "demo/bundle.js"
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
+    publicPath: "/demo"
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".json"]
@@ -14,15 +16,6 @@ module.exports = {
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
         loader: "babel-loader"
-      },
-      {
-        test: /\.(png|jpg|gif)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {}
-          }
-        ]
       }
     ]
   },
